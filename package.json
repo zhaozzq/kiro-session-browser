@@ -1,0 +1,90 @@
+{
+  "name": "kiro-session-browser",
+  "displayName": "Kiro Session Browser",
+  "description": "Browse and view all Kiro conversation sessions, grouped by project/workspace",
+  "version": "0.1.0",
+  "publisher": "zhaozq",
+  "engines": {
+    "vscode": "^1.103.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "kiroSessionBrowser",
+          "title": "Kiro Sessions",
+          "icon": "$(comment-discussion)"
+        }
+      ]
+    },
+    "views": {
+      "kiroSessionBrowser": [
+        {
+          "id": "kiroSessionsTree",
+          "name": "Sessions"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "kiroSessionsTree",
+        "contents": "No Kiro sessions found.\n[Refresh](command:kiroSessionBrowser.refresh)"
+      }
+    ],
+    "commands": [
+      {
+        "command": "kiroSessionBrowser.refresh",
+        "title": "Refresh Sessions",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "kiroSessionBrowser.copySessionPath",
+        "title": "Copy Session Path",
+        "icon": "$(copy)"
+      },
+      {
+        "command": "kiroSessionBrowser.openSession",
+        "title": "Open Session Detail",
+        "icon": "$(open-preview)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "kiroSessionBrowser.refresh",
+          "when": "view == kiroSessionsTree",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "kiroSessionBrowser.copySessionPath",
+          "when": "view == kiroSessionsTree && viewItem == session",
+          "group": "inline"
+        },
+        {
+          "command": "kiroSessionBrowser.openSession",
+          "when": "view == kiroSessionsTree && viewItem == session",
+          "group": "inline"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/vscode": "^1.103.0",
+    "typescript": "^5.7.0"
+  }
+}
