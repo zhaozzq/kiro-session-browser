@@ -4,6 +4,11 @@
   "description": "Browse and view all Kiro conversation sessions, grouped by project/workspace",
   "version": "0.1.1",
   "publisher": "zhaozq",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhaozq/kiro-session-browser"
+  },
   "engines": {
     "vscode": "^1.103.0"
   },
