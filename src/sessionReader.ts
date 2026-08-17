@@ -124,6 +124,7 @@ function groupByWorkspace(sessions: ParsedSession[]): WorkspaceGroup[] {
       groups.set(fullPath, {
         name,
         fullPath,
+        hash: session.workspaceHash,
         sessions: [],
       });
     }

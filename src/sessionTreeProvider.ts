@@ -14,9 +14,14 @@ export class WorkspaceItem extends vscode.TreeItem {
       "root-folder",
       new vscode.ThemeColor("charts.blue")
     );
-    this.contextValue = "workspace";
+    // Distinguish real workspace paths from unknown/placeholder ones
+    const hasValidPath =
+      group.fullPath && !group.fullPath.startsWith("_unknown_/");
+    this.contextValue = hasValidPath ? "workspace" : "workspaceUnknown";
     // Use resourceUri to get VS Code's native folder styling
-    this.resourceUri = vscode.Uri.file(group.fullPath);
+    if (hasValidPath) {
+      this.resourceUri = vscode.Uri.file(group.fullPath);
+    }
   }
 }
 

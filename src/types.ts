@@ -104,6 +104,8 @@ export interface WorkspaceGroup {
   name: string;
   /** Full workspace path */
   fullPath: string;
+  /** Workspace hash (directory name under ~/.kiro/sessions/) */
+  hash: string;
   /** Sessions belonging to this workspace */
   sessions: ParsedSession[];
 }

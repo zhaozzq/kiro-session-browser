@@ -53,6 +53,16 @@
         "command": "kiroSessionBrowser.openSession",
         "title": "Open Session Detail",
         "icon": "$(open-preview)"
+      },
+      {
+        "command": "kiroSessionBrowser.openInKiro",
+        "title": "Open in Kiro IDE",
+        "icon": "$(link-external)"
+      },
+      {
+        "command": "kiroSessionBrowser.openCacheDir",
+        "title": "Open Cache Directory",
+        "icon": "$(folder-opened)"
       }
     ],
     "menus": {
@@ -64,6 +74,16 @@
         }
       ],
       "view/item/context": [
+        {
+          "command": "kiroSessionBrowser.openInKiro",
+          "when": "view == kiroSessionsTree && viewItem == workspace",
+          "group": "inline"
+        },
+        {
+          "command": "kiroSessionBrowser.openCacheDir",
+          "when": "view == kiroSessionsTree && viewItem =~ /^workspace|^session/",
+          "group": "inline"
+        },
         {
           "command": "kiroSessionBrowser.copySessionPath",
           "when": "view == kiroSessionsTree && viewItem == session",
