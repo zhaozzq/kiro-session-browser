@@ -48,6 +48,14 @@ The extension reads session data from `~/.kiro/sessions/`. Each workspace has a 
 | `kiroSessionBrowser.openInKiro` | Open workspace in Kiro IDE |
 | `kiroSessionBrowser.openCacheDir` | Open cache directory in file manager |
 
+## Packaging
+
+```bash
+npx @vscode/vsce package --no-dependencies
+```
+
+This will generate a `.vsix` file in the project root.
+
 ## License
 
 [MIT](LICENSE)
