@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zhaozq/kiro-session-browser"
+    "url": "https://github.com/zhaozzq/kiro-session-browser"
   },
   "engines": {
     "vscode": "^1.103.0"
