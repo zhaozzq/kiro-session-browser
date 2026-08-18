@@ -2,7 +2,7 @@
   "name": "kiro-session-browser",
   "displayName": "Kiro Session Browser",
   "description": "Browse and view all Kiro conversation sessions, grouped by project/workspace",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "zhaozq",
   "license": "MIT",
   "repository": {
