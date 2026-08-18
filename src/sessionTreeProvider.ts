@@ -110,13 +110,20 @@ export class SessionTreeProvider
  */
 function formatDate(date: Date): string {
   const now = new Date();
-  const diffMs = now.getTime() - date.getTime();
-  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+  // Compare calendar days instead of raw time difference
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const dateStart = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  const diffDays = Math.round(
+    (todayStart.getTime() - dateStart.getTime()) / (1000 * 60 * 60 * 24)
+  );
+
+  const timeStr = `${date.getHours().toString().padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}`;
 
   if (diffDays === 0) {
-    return `Today ${date.getHours().toString().padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}`;
+    return `Today ${timeStr}`;
   } else if (diffDays === 1) {
-    return `Yesterday ${date.getHours().toString().padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}`;
+    return `Yesterday ${timeStr}`;
   } else if (diffDays < 7) {
     return `${diffDays}d ago`;
   } else {
